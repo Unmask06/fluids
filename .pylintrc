@@ -1,5 +1,4 @@
 [MESSAGES CONTROL]
 disable=invalid-name,
         too-many-arguments,
-        too-many-positional-arguments,
-        
+        too-many-positional-arguments
