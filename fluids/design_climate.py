@@ -603,7 +603,7 @@ class StationDataGSOD:
         # Need to get the data, and process it and score interpolation regimes.
         # Or could just randomly drop data and try to fill it in.
         accepted_values = []
-        for year in self.parsed_data.keys():
+        for year in self.parsed_data:
             if not (older_year <= year <= newer_year):
                 continue # Ignore out-of-range years easily
 
@@ -916,8 +916,8 @@ def gsod_day_parser(line, SI=True, to_datetime=True):
     # Ignore STN--- and WBAN, 8-12 characters
     fields = line.strip().split()[2:]
     # For the case the field is blank, set it to None; strip it either way
-    for i in range(len(fields)):
-        field = fields[i].rstrip()
+    for i, field in enumerate(fields):
+        field = field.rstrip()
         if not field:
             field = None
         fields[i] = field
